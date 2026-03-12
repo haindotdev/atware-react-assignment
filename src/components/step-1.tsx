@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface Step1Props {
   formData: {
@@ -13,38 +13,35 @@ const Step1: React.FC<Step1Props> = ({ formData, updateData, onNext }) => {
   return (
     <div
       style={{
-        padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "20px",
+        padding: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px',
       }}
     >
-      <div style={{ display: "flex", border: "1px solid black" }}>
+      <h1 className="text-blue-500">123</h1>
+      <div style={{ display: 'flex', border: '1px solid black' }}>
         <div
           style={{
-            padding: "5px 15px",
-            backgroundColor: "#89b4fa",
-            borderRight: "1px solid black",
+            padding: '5px 15px',
+            backgroundColor: '#89b4fa',
+            borderRight: '1px solid black',
           }}
         >
           Step 1
         </div>
-        <div style={{ padding: "5px 15px", borderRight: "1px solid black" }}>
-          Step 2
-        </div>
-        <div style={{ padding: "5px 15px", borderRight: "1px solid black" }}>
-          Step 3
-        </div>
-        <div style={{ padding: "5px 15px" }}>Review</div>
+        <div style={{ padding: '5px 15px', borderRight: '1px solid black' }}>Step 2</div>
+        <div style={{ padding: '5px 15px', borderRight: '1px solid black' }}>Step 3</div>
+        <div style={{ padding: '5px 15px' }}>Review</div>
       </div>
 
-      <div style={{ marginTop: "40px" }}>
+      <div style={{ marginTop: '40px' }}>
         <p>Please Select a meal</p>
         <select
           value={formData.meal}
           onChange={(e) => updateData({ meal: e.target.value })}
-          style={{ width: "150px", padding: "5px", border: "2px solid black" }}
+          style={{ width: '150px', padding: '5px', border: '2px solid black' }}
         >
           <option value="">---</option>
           <option value="breakfast">Breakfast</option>
@@ -58,30 +55,28 @@ const Step1: React.FC<Step1Props> = ({ formData, updateData, onNext }) => {
         <input
           type="number"
           value={formData.people}
-          onChange={(e) =>
-            updateData({ people: parseInt(e.target.value) || 1 })
-          }
+          onChange={(e) => updateData({ people: parseInt(e.target.value) || 1 })}
           min={1}
           max={10}
-          style={{ width: "140px", padding: "5px", border: "2px solid black" }}
+          style={{ width: '140px', padding: '5px', border: '2px solid black' }}
         />
       </div>
 
       <div
         style={{
-          alignSelf: "flex-end",
-          marginTop: "50px",
-          marginRight: "100px",
+          alignSelf: 'flex-end',
+          marginTop: '50px',
+          marginRight: '100px',
         }}
       >
         <button
           onClick={onNext}
           style={{
-            padding: "5px 20px",
-            backgroundColor: "white",
-            border: "2px solid black",
-            boxShadow: "3px 3px 0px black",
-            cursor: "pointer",
+            padding: '5px 20px',
+            backgroundColor: 'white',
+            border: '2px solid black',
+            boxShadow: '3px 3px 0px black',
+            cursor: 'pointer',
           }}
         >
           Next

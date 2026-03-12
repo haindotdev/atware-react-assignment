@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Step1 from "./components/step-1";
-import Step2 from "./components/step-2";
-import Step3 from "./components/step-3";
-import Step4 from "./components/step-4";
-import dishData from "./data/dishes.json";
+import React, { useState } from 'react';
+import Step1 from './components/step-1';
+import Step2 from './components/step-2';
+import Step3 from './components/step-3';
+import Step4 from './components/step-4';
+import dishData from '../data/dishes.json';
 
 interface OrderData {
   meal: string;
@@ -15,23 +15,17 @@ interface OrderData {
 const App: React.FC = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<OrderData>({
-    meal: "",
+    meal: '',
     people: 1,
-    restaurant: "",
+    restaurant: '',
     dishes: [],
   });
 
   const filteredRestaurants = Array.from(
-    new Set(
-      dishData.dishes
-        .filter((d) => d.availableMeals.includes(formData.meal))
-        .map((d) => d.restaurant),
-    ),
+    new Set(dishData.dishes.filter((d) => d.availableMeals.includes(formData.meal)).map((d) => d.restaurant))
   );
 
-  const filteredDishes = dishData.dishes.filter(
-    (d) => d.restaurant === formData.restaurant,
-  );
+  const filteredDishes = dishData.dishes.filter((d) => d.restaurant === formData.restaurant);
 
   const updateData = (newData: Partial<OrderData>) => {
     setFormData((prev) => ({ ...prev, ...newData }));
@@ -47,13 +41,7 @@ const App: React.FC = () => {
 
   return (
     <main>
-      {step === 1 && (
-        <Step1
-          formData={formData}
-          updateData={updateData}
-          onNext={handleNext}
-        />
-      )}
+      {step === 1 && <Step1 formData={formData} updateData={updateData} onNext={handleNext} />}
       {step === 2 && (
         <Step2
           formData={formData}
