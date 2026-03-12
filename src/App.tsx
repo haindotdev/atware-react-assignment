@@ -4,6 +4,7 @@ import Step2 from './components/step-2';
 import Step3 from './components/step-3';
 import Step4 from './components/step-4';
 import dishData from '../data/dishes.json';
+import OrderFoodView from './core/features/OrderFood/OrderFoodView';
 
 interface OrderData {
   meal: string;
@@ -41,26 +42,27 @@ const App: React.FC = () => {
 
   return (
     <main>
-      {step === 1 && <Step1 formData={formData} updateData={updateData} onNext={handleNext} />}
-      {step === 2 && (
-        <Step2
-          formData={formData}
-          updateData={updateData}
-          onNext={handleNext}
-          onBack={handleBack}
-          restaurants={filteredRestaurants}
-        />
-      )}
-      {step === 3 && (
-        <Step3
-          formData={formData}
-          updateData={updateData}
-          onNext={handleNext}
-          onBack={handleBack}
-          availableDishes={filteredDishes}
-        />
-      )}
-      {step === 4 && <Step4 formData={formData} onBack={handleBack} />}
+      <OrderFoodView />
+      {/* {step === 1 && <Step1 formData={formData} updateData={updateData} onNext={handleNext} />}
+        {step === 2 && (
+          <Step2
+            formData={formData}
+            updateData={updateData}
+            onNext={handleNext}
+            onBack={handleBack}
+            restaurants={filteredRestaurants}
+          />
+        )}
+        {step === 3 && (
+          <Step3
+            formData={formData}
+            updateData={updateData}
+            onNext={handleNext}
+            onBack={handleBack}
+            availableDishes={filteredDishes}
+          />
+        )}
+        {step === 4 && <Step4 formData={formData} onBack={handleBack} />} */}
     </main>
   );
 };
